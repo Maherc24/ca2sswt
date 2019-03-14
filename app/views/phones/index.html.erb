@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p id="notice"><%= notice %></p>
+
+ <div id="phonesContainer">
+  
+  <h1>Our Latest Phones</h1>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+});
+</script>
+     <div id="flip">Click to see special offer codes</div>
+     <div id="panel">Enter code at checkout for 5% discount: MaherMobile5</div>
+      <% @phones.each do |phone| %>
+      <div class="itemphone">
+       <h1><%= phone.make %></h1>
+       
+        <p><%= phone.model %></p>
+       <p>Price <%= number_to_currency(phone.price, :unit => "€") %>
+       <br>
+        Description: <%= phone.description %>
+        <br>
+        
+        <%= link_to (image_tag phone.image_url, :class => "phoneIm"), phone %>
+
+       
+       <p>
+         <%= link_to 'Show',  phone, :class => "button", :role => "button" %>
+         <%= link_to 'Edit',  edit_phone_path(phone), :class => "button", :role => "button" %>
+         <%= link_to 'Destroy',  phone, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+       </p>
+        
+      </div>
+    <% end %>
+      
+</div>
+
+
+<%= link_to 'New Phone', new_phone_path %>

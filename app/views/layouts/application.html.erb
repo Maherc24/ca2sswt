@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pshop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <header class="headSec">
+            <h1></h1>
+      
+      <ul>
+       
+        <li><%= link_to "Home", "/" %></li>
+        <li><%= link_to "Phones", "/phones" %></li>
+     </header>
+    <%= yield %>
+     <footer class="foot">
+      
+      <h1>Maher Phones are here to help you find your perfect phone</h1>
+      <p>Click the button to see our email</p>
+
+<button onclick="myFunction()" class=button>Email Us</button>
+
+<script>
+function myFunction() {
+  confirm("Mahermobiles@gmail.com");
+}
+</script>
+      <a href="/phones" class="button">More Phones</a>
+    </footer>
+    
+  </body>
+</html>
